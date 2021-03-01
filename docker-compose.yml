@@ -1,0 +1,24 @@
+version: "3.1"
+services:
+    db1:
+        build: ./db1
+        environment:
+            SA_PASSWORD: $MSSQL_SA_PASSWORD
+            ACCEPT_EULA: "Y"
+            MSSQL_AGENT_ENABLED: "true"
+        ports:
+            - "2500:1433"
+        container_name: db1
+        hostname: db1
+        user: root
+    db2:
+        build: ./db2
+        environment:
+            SA_PASSWORD: $MSSQL_SA_PASSWORD
+            ACCEPT_EULA: "Y"
+            MSSQL_AGENT_ENABLED: "true"
+        ports:
+            - "2600:1433"
+        container_name: db2
+        hostname: db2
+        user: root
